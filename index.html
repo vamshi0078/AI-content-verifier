@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI Content Verifier</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+<div class="bg-live">
+    <div class="bg-picture"></div>
+    <div class="bg-orb o1"></div>
+    <div class="bg-orb o2"></div>
+    <div class="bg-orb o3"></div>
+    <div class="scan-beam"></div>
+</div>
+
+<div class="container">
+
+    <header>
+        <div class="eyebrow"><span class="dot"></span>Live Forensic Scan</div>
+        <h1>AI Content <span class="accent">Verifier</span></h1>
+        <p>// forensic content &amp; source credibility analysis</p>
+    </header>
+
+    <!-- INPUT -->
+    <div class="card">
+
+        <div class="input-group">
+            <label for="newsText">📰 Article Content</label>
+            <textarea
+                id="newsText"
+                oninput="updateWordCount()"
+                placeholder="Paste the complete news article here..."
+            ></textarea>
+            <div class="character-count" id="charCount">0 characters</div>
+        </div>
+
+        <div class="input-group">
+            <label for="newsSource">🌐 Publisher Domain</label>
+            <input
+                type="text"
+                id="newsSource"
+                placeholder="Example: reuters.com or rbi.org.in"
+            >
+        </div>
+
+        <button class="btn-primary" onclick="analyzeArticle()">
+            🔍 Analyze Article
+        </button>
+
+    </div>
+
+
+    <!-- RESULTS -->
+    <div id="resultsCard" class="card results">
+
+        <div class="results-header">
+            <h2>Forensic Analysis Report</h2>
+            <span class="tag">SCAN COMPLETE</span>
+        </div>
+
+
+        <!-- SCORE -->
+        <div class="meter-container">
+            <h3>Overall Credibility Score</h3>
+            <div class="meter-bar">
+                <div id="meterFill" class="meter-fill">
+                    <span id="scoreText" class="score-text">0%</span>
+                </div>
+            </div>
+            <div id="verdictBadge" class="verdict-badge">Verifying...</div>
+        </div>
+
+
+        <!-- EXPLANATION -->
+        <div class="explanation">
+            <strong>🧾 Analysis</strong>
+            <p id="analysisExplanation">-</p>
+        </div>
+
+
+        <!-- METRICS -->
+        <div class="metrics-grid">
+
+            <div class="metric-card">
+                <div class="metric-icon">🌐</div>
+                <div class="metric-body">
+                    <h4>Domain Trust</h4>
+                    <p id="domainMetric">Unknown</p>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🎣</div>
+                <div class="metric-body">
+                    <h4>Clickbait Index</h4>
+                    <p id="clickbaitMetric">0%</p>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🔥</div>
+                <div class="metric-body">
+                    <h4>Sensationalism</h4>
+                    <p id="sensationalMetric">0%</p>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📡</div>
+                <div class="metric-body">
+                    <h4>Source Status</h4>
+                    <p id="sourceMetric">Unknown</p>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="tips">
+            <span class="icon">⚠️</span>
+            <span><strong style="color:var(--warning); font-family:var(--mono); text-transform:uppercase; font-size:0.78rem; letter-spacing:0.06em;">Important —</strong>
+            This tool provides a rule-based credibility estimate.
+            A high score does not prove that an article is true.
+            Always verify important information using multiple
+            reliable sources.</span>
+        </div>
+
+    </div>
+
+    <footer>SYSTEM STATUS: OPERATIONAL &nbsp;·&nbsp; RULE-BASED HEURISTIC ENGINE v1.0</footer>
+
+</div>
+
+
+<script src="script.js"></script>
+
+
+</body>
+</html>
